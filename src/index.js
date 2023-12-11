@@ -1,16 +1,18 @@
-const express = require(`express`);
+const express = require('express');
+// const moment = require('moment-timezone');
+const dotenv = require('dotenv');
 
-const middlewareLogsRequest = require('./middleware/logs')
-const usersRouter = require('./routes/users')
-const app = express ();
+const app = express();
 app.use(express.json());
 
-app.use(middlewareLogsRequest);
+dotenv.config();
 
-app.use(express.json());
+const childController = require("./child/childController");
 
-app.use('/users', usersRouter);
+app.use("/child", childController);
 
-app.listen(4000, ()=> {
-    console.log('listening on port 4000')
+const PORT = process.env.PORT;
+
+app.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`);
 });
