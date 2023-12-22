@@ -1,0 +1,23 @@
+# npm
+node_modules
+package-lock.json
+*.log
+*.gz
+
+# Coveralls
+.nyc_output
+coverage
+
+# Benchmarking
+benchmarks/graphs
+
+# ignore additional files using core.excludesFile
+# https://git-scm.com/docs/gitignore
+
+# Ignore all the files related to Flask API
+*.pyc
+__pycache__
+venv
+.idea
+# Ignore all the files related to .h5 model
+*.npy
